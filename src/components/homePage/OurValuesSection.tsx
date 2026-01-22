@@ -1,6 +1,6 @@
 const OurValuesSection = () => {
   return (
-    <section className="relative bg-gradient-to-br from-green-500 to-green-600 py-24">
+    <section className="relative bg-[#36B864] py-24">
       <div className="mx-auto max-w-7xl px-6">
         {/* SECTION TITLE */}
         <h2 className="mb-16 text-center text-4xl font-bold text-white md:text-5xl">

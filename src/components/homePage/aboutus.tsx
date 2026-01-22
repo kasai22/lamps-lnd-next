@@ -4,14 +4,14 @@ const AboutLogisticsSection = () => {
   return (
     <section className="w-full bg-white min-h-screen flex items-center">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:py-32">
-        <div className="flex flex-row gap-25 items-center lg:flex-col">
+        <div className="flex flex-row items-center lg:flex-row gap-12 lg:gap-24">
           {/* LEFT CONTENT */}
-          <div className="flex-1">
+          <div className="flex-1 w-full">
             <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-gray-500">
               About Us
             </p>
 
-            <h2 className="mb-6 text-4xl font-bold leading-tight text-gray-900 md:text-5xl">
+            <h2 className="mb-6 text-4xl font-bold leading-tight text-gray-900 md:text-4xl w-full">
               Logistics and Manpower <br /> Services
             </h2>
 
@@ -34,7 +34,7 @@ const AboutLogisticsSection = () => {
 
           {/* RIGHT IMAGE */}
           <div className="flex-1 flex justify-center lg:justify-end">
-            <div className="relative h-115 w-full max-w-md overflow-hidden rounded-3xl border-4 border-green-500">
+            <div className="relative h-115 w-full max-w-md overflow-hidden rounded-3x">
               <Image
                 src="/about/about_home.jpg"
                 alt="Logistics and Manpower Services"
