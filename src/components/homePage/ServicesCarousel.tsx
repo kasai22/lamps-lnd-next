@@ -36,7 +36,7 @@ const services: Service[] = [
     description:
       "While we can customize your cleaning plan to suit your needs, most clients schedule regular cleaning services:",
     image: "/services/service-1.jpg",
-    primary: true,
+    // primary: true,
   },
   {
     title: "Interior & Exterior Cleaning",
@@ -49,7 +49,7 @@ const services: Service[] = [
     description:
       "While we can customize your cleaning plan to suit your needs, most clients schedule regular cleaning services:",
     image: "/services/service-3.jpg",
-    primary: true,
+    // primary: true,
   },
   {
     title: "Pest Control",
