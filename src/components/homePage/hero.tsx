@@ -48,47 +48,56 @@ export default function HeroCarousel() {
     return () => clearInterval(interval);
   }, []);
 
-  const goToSlide = (index: number) => setCurrent(index);
-
   return (
-    <section className="relative w-full min-h-[80vh] md:min-h-screen overflow-hidden">
+    <section className="relative w-full min-h-[75vh] md:min-h-screen overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={slide.id}
-          className={`absolute mt-[4.5rem] inset-0 flex items-center justify-center md:justify-start transition-all duration-700 ease-in-out
-          ${
-            current === index
+          className={`absolute inset-0 mt-[4.5rem] flex items-center justify-center md:justify-start
+            transition-all duration-700 ease-in-out
+            ${current === index
               ? "opacity-100 translate-x-0"
-              : "opacity-0 translate-x-10"
-          }
-        `}
+              : "opacity-0 translate-x-6 md:translate-x-10"
+            }
+          `}
           style={{
             backgroundImage: `url(${slide.img})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         >
-          {/* Overlay — darker on mobile */}
-          <div className="absolute inset-0 bg-black/50 md:bg-black/40" />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/60 md:bg-black/40" />
 
           {/* Content */}
-          <div className="relative px-6 py-16 text-center md:text-left md:px-20 max-w-2xl text-white">
-            <p className="text-base md:text-xl font-light opacity-90 mb-2">
+          <div className="relative w-full px-5 py-14 sm:px-8 md:px-20
+            text-center md:text-left max-w-xl md:max-w-2xl text-white"
+          >
+            <p className="text-sm sm:text-base md:text-xl font-light opacity-90 mb-2">
               {slide.subtitle}
             </p>
 
-            <h1 className="text-3xl leading-snug font-extrabold mb-4 md:text-5xl md:leading-tight">
+            <h1 className="text-2xl sm:text-3xl leading-snug font-extrabold mb-3
+              md:text-5xl md:leading-tight"
+            >
               {slide.title}
             </h1>
 
-            <p className="text-sm md:text-lg opacity-95 mb-8">{slide.desc}</p>
+            <p className="text-sm sm:text-base md:text-lg opacity-95 mb-6 md:mb-8">
+              {slide.desc}
+            </p>
 
-            <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-center md:items-start justify-center md:justify-start">
+            <div className="flex flex-col md:flex-row gap-3 md:gap-6
+              items-center md:items-start justify-center md:justify-start"
+            >
               <GradientButton label="Contact Us" href="/contact" />
 
               <Link
                 href="/services"
-                className="w-full md:w-auto border border-white text-white px-6 py-3 rounded-lg font-semibold hover:border-green-500 hover:text-green-500 active:scale-95 transition-all duration-200 text-center"
+                className="w-full sm:w-auto border border-white text-white
+                  px-6 py-3 rounded-lg font-semibold
+                  hover:border-green-500 hover:text-green-500
+                  active:scale-95 transition-all duration-200 text-center"
               >
                 View Services
               </Link>
@@ -97,35 +106,41 @@ export default function HeroCarousel() {
         </div>
       ))}
 
-      {/* Pagination Dots */}
-      <div className="absolute bottom-4 md:bottom-8 w-full flex justify-center gap-3 md:gap-4 z-20">
+      {/* Pagination */}
+      <div className="absolute bottom-3 sm:bottom-4 md:bottom-8 w-full
+        flex items-center justify-center gap-4 md:gap-4 z-20"
+      >
         <button
-          className=" text-white hover:bg-green-600 rounded-full shadow z-20"
+          className="p-2 md:p-0 rounded-full text-white
+            hover:bg-green-600 active:scale-90 transition"
           onClick={() =>
             setCurrent((prev) => (prev - 1 + slides.length) % slides.length)
           }
         >
-          <AiOutlineLeft />
+          <AiOutlineLeft size={18} />
         </button>
+
         {slides.map((_, index) => (
           <button
             key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300
-            ${current === index ? "bg-green-500 scale-125" : "bg-white/50"}
-          `}
+            onClick={() => setCurrent(index)}
+            className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full
+              transition-all duration-300
+              ${current === index ? "bg-green-500 scale-125" : "bg-white/50"}
+            `}
           />
         ))}
 
         <button
-          className=" text-white hover:bg-green-600 rounded-full shadow z-20"
-          onClick={() => setCurrent((prev) => (prev + 1) % slides.length)}
+          className="p-2 md:p-0 rounded-full text-white
+            hover:bg-green-600 active:scale-90 transition"
+          onClick={() =>
+            setCurrent((prev) => (prev + 1) % slides.length)
+          }
         >
-          <AiOutlineRight />
+          <AiOutlineRight size={18} />
         </button>
       </div>
-
-      {/* Navigation — thumbs easy area */}
     </section>
   );
 }
